@@ -12,14 +12,16 @@ from PIL import Image
 
 
 
-st.write('# Langrangian Ocean Search Targets (LOST)')
+st.write('# LOST')
 
 st.markdown('''
+Langrangian Ocean Search Targets
+\n
 An Interactive Operational Search and Rescue Platform. 
 \n 
 Brought to you by **FindX**.
-''')
 
+''')
 
 # st.header('Map of Location')
 # selected_geography = st.selectbox(label='Geography', options=avocado['geography'].unique())
@@ -33,7 +35,7 @@ with st.form(key='my_form'):
     duration = st.text_input(label='Duration of the model run in days',value ='2')
     
     st.header("Select Object Type")
-    type_list = ["Person In Water: State Unknown","Person In Water: Vertical", "Person In Water: Horizontal", "Other"]
+    type_list = ["Person In Water: State Unknown","Person In Water: with life jacket", "Person In Water: Vertical", "Person In Water: sitting / huddled", "Person In Water: floating on back", "Liferaft: no ballast pockets, general type", "Liferaft: no ballast pockets, no canopy, no drouge", "Liferaft: no ballast pockets, with canopy, with drouge", "Liferaft: shallow ballast pockets with canopy, capsized", "Liferaft: 4–6 man, with canopy, with drouge", "Liferaft: 15–25 man, with canopy, with drouge", "Aviation raft: 4–6 man, with canopy, no drouge","Personal watercraft: Sea kayak, with person", "Personal watercraft: Homemade wood raft", "Personal watercraft: Homemade wood raft, with sail", "Personal watercraft: Surfboard with person", "Personal watercraft: Windsurfer with person, sail and mast in the water", "Sailing vessel: mono hull, keel, medium displacement", "Power vessel: Enclosed Lifeboat", "Power vessel: Vessel with outboard motors no drouge", "Power vessel: Flat bottomed board, boston whaler", "Power vessel: V hull boat", "Power vessel: Sport fisher, centre open console", "Power vessel: Commercial fishing vessel type unknown", "Power vessel: Commercial fishing vessel longline, stern or net", "Power vessel: Coastal freighter", "Flotsam: Fishing vessel general debris", "Flotsam: Cubic metre bait box, loading unknown"]
     selected_object_type = st.selectbox(label='Select the object type from the drop down menu', options=type_list)
     
     st.header("Enter Optional Information")
