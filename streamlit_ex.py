@@ -25,22 +25,23 @@ Brought to you by **FindX**.
 # submitted = st.button('Submit')
 
 st.header('Enter the following required information.')
-longitude = st.text_input(label='Longitude of deployment site (between 0 & 40)')   
-latitude = st.text_input(label='Latitude of deployment site (between -50 & -10)')
-start_date = st.text_input(label='Start date and time of the deployment:"Year/Month/Day Hour:Minute:Second"')  
-duration = st.text_input(label='Duration of the model run in days')
-
-st.header("Select Object Type")
-type_list = ["PIW State Unknown","Something Else", "Other"]
-selected_object_type = st.selectbox(label='Select the object type from the drop down menu', options=type_list)
-
-st.header("Enter Optional Information")
-deployment_radius = st.text_input(label='Enter the radius of the deployment of particles around a point (OPTIONAL)')
-Output_file = st.text_input(label='Enter the output file name which can be used for plotting')                      
-
-
-
-submitted = st.button('Submit')
+with st.form(key='my_form'):
+    longitude = st.text_input(label='Longitude of deployment site (between 0 & 40)',value ='10')   
+    latitude = st.text_input(label='Latitude of deployment site (between -50 & -10)',value ='-45')
+    start_date = st.text_input(label='Start date and time of the deployment: (Year/Month/Day Hour:Minute:Second}', value ='2021/05/15 00:00:00')  
+    duration = st.text_input(label='Duration of the model run in days',value ='2')
+    
+    st.header("Select Object Type")
+    type_list = ["PIW State Unknown","Something Else", "Other"]
+    selected_object_type = st.selectbox(label='Select the object type from the drop down menu', options=type_list)
+    
+    st.header("Enter Optional Information")
+    deployment_radius = st.text_input(label='Enter the radius of the deployment of particles around a point (OPTIONAL)',value ='4')
+    Output_file = st.text_input(label='Enter the output file name which can be used for plotting', value ='output_file')                      
+    st.form_submit_button("Submit")
+    
+    
+    # submitted = st.button('Submit')
 
 # if submitted:
 #     filtered_avocado = avocado[avocado['geography'] == selected_geography]
@@ -57,4 +58,8 @@ with st.sidebar:
     st.markdown('Put information about LOST here')
     st.subheader('\n ')
     st.markdown('Put information about LOST here')
-    
+
+
+#To plot an image
+
+st.title("Output")
