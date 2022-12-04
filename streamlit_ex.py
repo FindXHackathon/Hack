@@ -38,7 +38,7 @@ with st.form(key='my_form'):
     
     st.header("Enter Optional Information")
     deployment_radius = st.text_input(label='Enter the radius of the deployment of particles around a point (OPTIONAL)',value ='4')
-    Output_file = st.text_input(label='Enter the output file name which can be used for plotting', value ='output_file')                      
+    Output_file = st.text_input(label='Enter the output file name which can be used for plotting', value ='output_file_'+str(start_date[0:4])+str(start_date[5:7])+str(start_date[8:10]))                      
     submitted = st.form_submit_button("Submit")
     
     # Every form must have a submit button.
@@ -55,7 +55,15 @@ with st.sidebar:
     st.sidebar.image('.\lost.png')
     st.subheader('\n ')
     st.subheader('About')
-    st.markdown('Put information about LOST here')
+    st.markdown('''On the 18th of January 2016, the upturned hull of a catamaran was
+                spotted approximately 113 nautical miles off Cape Recife, near Port
+                Elizabeth (South Africa). 5 days after being spotted off Cape Recife, on
+                the 22nd of January 2016, the National Sea Rescue Institute (NSRI)
+                found the capsized catamaran south of Cape Agulhas. The approximate
+                locations, the last known position and the recovery site of the capsized
+                vessel provides valuable information that are used to assess the ability of
+                the LOST particle trajectory model. ( Hart-Davis et al. (2018). 
+                LOST projects and models the location of such a particle lost at sea.''')
     st.subheader('\n ')
     st.subheader('\n ')
     st.header("Authors")
