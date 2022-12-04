@@ -8,6 +8,7 @@ Created on Sat Dec  3 14:08:02 2022
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+from PIL import Image
 
 
 
@@ -32,17 +33,41 @@ with st.form(key='my_form'):
     duration = st.text_input(label='Duration of the model run in days',value ='2')
     
     st.header("Select Object Type")
-    type_list = ["PIW State Unknown","Something Else", "Other"]
+    type_list = ["Person In Water: State Unknown","Person In Water: Vertical", "Person In Water: Horizontal", "Other"]
     selected_object_type = st.selectbox(label='Select the object type from the drop down menu', options=type_list)
     
     st.header("Enter Optional Information")
     deployment_radius = st.text_input(label='Enter the radius of the deployment of particles around a point (OPTIONAL)',value ='4')
     Output_file = st.text_input(label='Enter the output file name which can be used for plotting', value ='output_file')                      
-    st.form_submit_button("Submit")
+    submitted = st.form_submit_button("Submit")
     
-    
-    # submitted = st.button('Submit')
+    # Every form must have a submit button.
 
+if submitted:
+    st.title("Output")
+    image = Image.open('.\Output_image.png')
+    st.image(image, caption='Red dot indicates the location of the Person in Water.')
+
+
+
+with st.sidebar:
+    #st.sidebar.title('LOST')
+    st.sidebar.image('.\lost.png')
+    st.subheader('\n ')
+    st.subheader('About')
+    st.markdown('Put information about LOST here')
+    st.subheader('\n ')
+    st.subheader('\n ')
+    st.header("Authors")
+    st.markdown('Björn Backeberg')
+    st.markdown('Michael Hart-Davis')
+    st.subheader('\n ')
+    st.subheader('\n ')
+    st.header("Made accesible by")
+    st.markdown('**_FindX_**')
+
+
+#To plot an image
 # if submitted:
 #     filtered_avocado = avocado[avocado['geography'] == selected_geography]
 #     line_fig = px.line(filtered_avocado,
@@ -51,15 +76,19 @@ with st.form(key='my_form'):
 #                        title=f'Avocado Prices in {selected_geography}')
 #     st.plotly_chart(line_fig)
 
-with st.sidebar:
-    #st.sidebar.title('LOST')
-    st.sidebar.image('.\lost.png')
-    st.subheader('About')
-    st.markdown('Put information about LOST here')
-    st.subheader('\n ')
-    st.markdown('Put information about LOST here')
 
 
-#To plot an image
 
-st.title("Output")
+# st.markdown(
+#     """
+#     <style>
+#     .reportview-container {
+#         background: url("url_goes_here")
+#     }
+#    .sidebar .sidebar-content {
+#         background: url("url_goes_here")
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
